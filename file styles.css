@@ -1,0 +1,12 @@
+:root { --primary: #1a73e8; --danger: #d93025; --warning: #f9ab00; }
+body { font-family: sans-serif; margin: 0; background: #f8f9fa; padding-bottom: 80px; }
+header { background: var(--primary); color: white; padding: 40px 20px 15px; position: sticky; top: 0; z-index: 100; }
+.view { padding: 15px; }
+.hidden { display: none !important; }
+.card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 15px; }
+input, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
+.btn-primary { background: var(--primary); color: white; border: none; width: 100%; padding: 15px; border-radius: 8px; font-weight: bold; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px; }
+.stat-card { background: white; padding: 10px; border-radius: 10px; text-align: center; }
+#fab { position: fixed; bottom: 30px; right: 20px; width: 60px; height: 60px; border-radius: 30px; background: var(--primary); color: white; font-size: 30px; border: none; }
+#interactive video { width: 100%; border-radius: 10px; }
