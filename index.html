@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SCBD Expiry System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.jsdelivr.net/npm/quagga/dist/quagga.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>TEAM SCBD</h1>
+            <button id="logoutBtn" class="hidden">Logout</button>
+        </div>
+    </header>
+
+    <main id="app">
+        <section id="authView" class="view">
+            <div class="card">
+                <h2>Staff Login</h2>
+                <input type="email" id="email" placeholder="Email Staff">
+                <input type="password" id="password" placeholder="Password">
+                <button onclick="handleLogin()" class="btn-primary">Masuk</button>
+            </div>
+        </section>
+
+        <section id="dashboardView" class="view hidden">
+            <div class="stats-grid">
+                <div class="stat-card" id="statTotal">0<span>Total</span></div>
+                <div class="stat-card warning" id="statSoon">0<span>Segera</span></div>
+                <div class="stat-card danger" id="statExpired">0<span>Expired</span></div>
+            </div>
+            <button onclick="exportToExcel()" class="btn-secondary">Download Excel</button>
+            <div id="itemsContainer"></div>
+        </section>
+
+        <section id="addView" class="view hidden">
+            <div class="card">
+                <h2>Input Produk Baru</h2>
+                <div id="interactive" class="viewport"></div>
+                <button onclick="startScanner()" class="btn-secondary">Scan Barcode</button>
+                <input type="text" id="prodBarcode" placeholder="Barcode">
+                <input type="text" id="prodName" placeholder="Nama Produk">
+                <select id="prodDept">
+                    <option value="Fresh Milk">Fresh Milk</option>
+                    <option value="Dairy">Dairy</option>
+                    <option value="Frozen">Frozen</option>
+                    <option value="Meat">Meat</option>
+                </select>
+                <input type="date" id="prodExpiry">
+                <input type="number" id="prodQty" placeholder="Jumlah">
+                <button onclick="saveProduct()" class="btn-primary">Simpan</button>
+                <button onclick="showView('dashboardView')" class="btn-ghost">Batal</button>
+            </div>
+        </section>
+    </main>
+
+    <button id="fab" class="hidden" onclick="showView('addView')">+</button>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
